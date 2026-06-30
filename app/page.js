@@ -112,7 +112,7 @@ export default async function HomePage() {
       <h2>About</h2>
       <ul className="section-list">
         <li>Minimal daily news, disasters, and stock updates.</li>
-        <li>Set UPSTASH_REDIS_REST_URL and UPSTASH_REDIS_REST_TOKEN for Redis storage.</li>
+        <li>Set REDIS_URL for Redis storage.</li>
         <li>Optional keys: GNEWS_API_KEY, CURRENTSNEWS_API_KEY, ALPHAVANTAGE_API_KEY.</li>
         <li>Each archived report is served as a raw HTML page with no extra CSS.</li>
       </ul>

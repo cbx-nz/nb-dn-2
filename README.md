@@ -17,8 +17,7 @@ Copy `.env.example` and set:
 
 | Variable | Description |
 | --- | --- |
-| `UPSTASH_REDIS_REST_URL` | Upstash Redis REST endpoint used to store the latest report, archived reports, RSS, and cooldown state. |
-| `UPSTASH_REDIS_REST_TOKEN` | Upstash Redis REST token for authenticating writes and reads. |
+| `REDIS_URL` | Single Redis connection string used to store the latest report, archived reports, RSS, and cooldown state. |
 | `SITE_URL` | Public base URL for the deployed site, used in generated RSS links. |
 | `GNEWS_API_KEY` | Optional GNews API key used for one of the news sources. |
 | `CURRENTSNEWS_API_KEY` | Optional Currents API key used for a second news source. |

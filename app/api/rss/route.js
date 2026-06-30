@@ -1,14 +1,20 @@
-import { getLatestReport } from '../../../lib/report-store.js';
+import { buildReport } from '../../../lib/news.js';
+import { getLatestReport, saveReport } from '../../../lib/report-store.js';
 
 export const runtime = 'nodejs';
 
 export async function GET() {
-  const report = await getLatestReport();
+  let report = await getLatestReport();
 
   if (!report) {
-    return new Response('<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>No Bloat Daily News</title><description>No report available yet.</description></channel></rss>', {
-      headers: { 'content-type': 'application/xml; charset=utf-8' }
-    });
+    const payload = await buildReport();
+    report = payload.report;
+
+    try {
+      await saveReport(payload);
+    } catch {
+      // Feed generation still succeeds even if Redis is not writable.
+    }
   }
 
   const items = (report.news || []).slice(0, 12).map((item) => `

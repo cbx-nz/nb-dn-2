@@ -22,6 +22,7 @@ Copy `.env.example` and set:
 | `GNEWS_API_KEY` | Optional GNews API key used for one of the news sources. |
 | `CURRENTSNEWS_API_KEY` | Optional Currents API key used for a second news source. |
 | `ALPHAVANTAGE_API_KEY` | Optional Alpha Vantage API key used for stock updates. |
+| `STOCK_WATCHLIST` | Optional JSON array of stock objects used for the stock cards. Each item can include `symbol`, `label`, and `market`. |
 
 ## Run locally
 
@@ -42,3 +43,15 @@ This folder is structured to behave like a normal GitHub repo for Vercel import:
 - `lib/` contains shared server-side logic for fetching and storing reports.
 - `.gitignore` excludes build output, dependencies, and local env files.
 - `package.json` includes the standard Vercel/Next scripts.
+
+## Stock watchlist example
+
+```json
+[
+	{ "symbol": "MSFT", "label": "Microsoft", "market": "US" },
+	{ "symbol": "AAPL", "label": "Apple", "market": "US" },
+	{ "symbol": "TSLA", "label": "Tesla / SpaceX", "market": "US" },
+	{ "symbol": "SPY", "label": "S&P 500", "market": "US index" },
+	{ "symbol": "QQQ", "label": "Nasdaq 100", "market": "US index" }
+]
+```

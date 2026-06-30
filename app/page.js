@@ -75,13 +75,13 @@ export default async function HomePage() {
       <pre>{report ? `📆 ${report.date}\n🌍 Major Earthquakes + Global news below.\n🛰️ Save pages offline. Avoid external links on mobile data.` : 'No report available yet.'}</pre>
 
       <h2 id="news">Today's News</h2>
-      <h3>Earthquakes</h3>
+      <h3 className="section-heading section-heading--earthquakes">Earthquakes</h3>
       <div className="news-list">{renderItems(earthquakes)}</div>
 
-      <h3>Top News</h3>
+      <h3 className="section-heading section-heading--news">Top News</h3>
       <div className="news-list">{renderItems(topNews)}</div>
 
-      <h3>Disaster Alerts</h3>
+      <h3 className="section-heading section-heading--alerts">Disaster Alerts</h3>
       <div className="news-list">{renderItems(alerts)}</div>
 
       <h2 id="stock">Stock Update</h2>
@@ -89,6 +89,7 @@ export default async function HomePage() {
         {(report?.stocks || []).map((item) => (
           <div className="card" key={item.symbol}>
             <strong>{item.label} ({item.symbol})</strong>
+            {item.market ? <div className="muted">{item.market}</div> : null}
             <div className="muted">{item.note}</div>
             {item.date ? <div>Date: {item.date}</div> : null}
             {item.close ? <div>Close: {item.close}</div> : null}
@@ -114,6 +115,7 @@ export default async function HomePage() {
         <li>Minimal daily news, disasters, and stock updates.</li>
         <li>Set REDIS_URL for Redis storage.</li>
         <li>Optional keys: GNEWS_API_KEY, CURRENTSNEWS_API_KEY, ALPHAVANTAGE_API_KEY.</li>
+        <li>Optional: set STOCK_WATCHLIST as JSON to mix US and NZ tickers supported by your market data provider.</li>
         <li>Each archived report is served as a raw HTML page with no extra CSS.</li>
       </ul>
     </main>

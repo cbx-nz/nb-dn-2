@@ -15,6 +15,30 @@ h2 {
   color: #222;
 }
 
+.section-heading {
+  display: inline-block;
+  margin: 0.75rem 0 0.5rem;
+  padding: 0.35rem 0.7rem;
+  border: 1px solid #222;
+  border-left-width: 0.5rem;
+  background: #f8f8f8;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.section-heading--news {
+  border-left-color: #007acc;
+}
+
+.section-heading--alerts {
+  border-left-color: #b45309;
+}
+
+.section-heading--earthquakes {
+  border-left-color: #8b5cf6;
+}
+
 a {
   color: #007acc;
   text-decoration: none;
